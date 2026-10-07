@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "James Bond Film Analysis"
 author: "Zihui Zhao"
 format: html
 ---
@@ -14,8 +14,11 @@ bond.data
 bond.data |>
     select(Year, Movie, US_Gross) |>
     arrange(desc(US_Gross))
+top_movie <- bond.data |>
+    arrange(desc(US_Gross)) |>
+    slice(1)
 ```
-  The movie with the highest US box-office gross was Skyfall, released in 2012. It earned about \$300 million at the US box office.
+  The movie with the highest US box-office gross was `r top_movie$Movie`, released in `r top_movie$Year`. It earned about \$`r round(top_movie$US_Gross)` million at the US box office.
 
 ## Is there a correlation between budget and earnings?
 ```{r}
